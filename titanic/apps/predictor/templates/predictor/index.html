@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Titanic</title>
+</head>
+<body>
+    <div class="container">        
+        <h1>Survive the Titanic</h1>
+        <form action="{% url 'predictor:result' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <p class="form-control-sm">Your Title: {{form.title}}</p>
+                <p class="form-control-sm">Your Gender: {{form.sex}}</p>
+                <p class="form-control-sm">Your Age: {{form.age}}</p>
+                <p class="form-control-sm">Number of Siblings and/or Spouse: {{form.sibsp}}</p>
+                <p class="form-control-sm">Number of Parents and/or Children: {{form.parch}}</p>
+                <p class="form-control-sm">Fare Cost: {{form.fare}}</p>
+                <p class="form-control-sm">Departed From: {{form.embarked}}</p>
+                <p class="form-control-sm">Passenger Class {{form.pclass}}</p>
+            </div>
+            <input type="submit" value="Submit">
+        </form>    
+    </div>
+</body>
+</html>
